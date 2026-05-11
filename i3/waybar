@@ -35,8 +35,7 @@
       "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀"]
     },
     "clock": {
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%a, %B %d (%d-%m-%y)}"
+      "format": "{:%A, %B %d, %Y (%R)}",
     },
     "cpu": {
       "format": "{usage}% CPU",
