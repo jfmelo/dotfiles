@@ -5,10 +5,10 @@
     "output": "eDP-1",
     "modules-left": [
       "sway/workspaces",
-      "custom/media"
+      "custom/media",
     ],
     "modules-center": [
-      "clock",
+      "clock"
     ],
     "modules-right": [
       "network",

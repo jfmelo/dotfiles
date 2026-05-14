@@ -5,7 +5,8 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: #0e0e0e;
+  border: 0;
   margin: 0;
   padding: 0;
 }
@@ -14,14 +15,14 @@ window#waybar {
   background: transparent;
   border: 0;
   border-radius: 0;
-  color: #b4befe;
+  color: #bebebe;
   margin: 0;
   padding: 0;
 }
 
 #workspaces button:hover,
 #workspaces button.focused {
-  background: #b4befe;
+  background: #fff;
   color: #1e1e2e;
 }
 
@@ -30,7 +31,6 @@ window#waybar {
 }
 
 #clock,
-#custom-pomodoro,
 #battery,
 #cpu,
 #memory,
@@ -39,11 +39,14 @@ window#waybar {
 #pulseaudio,
 #custom-media,
 #tray {
-  background-color: #181825;
-  border-radius: 4px;
-  margin: 4px 2px;
-  padding: 2px 10px 0 10px;
-  color: #a6adc8;
+  border-left: 1px solid #222;
+  padding: 0 10px;
+  color: #bebebe;
+}
+
+#clock,
+#network {
+  border: 0;
 }
 
 #battery.charging,
@@ -74,12 +77,11 @@ label:focus {
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  background-color: #eb4d4b;
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  background-color: #eb4d4b;
 }
 
 #temperature.critical {
