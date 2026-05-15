@@ -30,8 +30,7 @@ config.window_padding = {
 }
 
 config.inactive_pane_hsb = {
-	saturation = 0.4,
-	brightness = 0.6,
+	brightness = 0.15,
 }
 
 config.keys = {
