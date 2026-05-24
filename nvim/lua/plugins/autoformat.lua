@@ -34,6 +34,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			css = { "prettier" },
+			gdscript = { "gdscript-formatter" },
 			go = { "gofumpt" },
 			html = { "prettier" },
 			javascript = { "prettier" },
