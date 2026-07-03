@@ -72,7 +72,7 @@ ZSH_CUSTOM=/home/jfmelo/Projects/dotfiles/oh-my-zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git minikube pj zsh-syntax-highlighting terraform timer)
+plugins=(git kubectl pj zsh-syntax-highlighting terraform timer)
 PROJECT_PATHS=(~/Projects ~/scribbr ~/quillbot)
 
 source $ZSH/oh-my-zsh.sh
@@ -136,7 +136,6 @@ alias ab='docker run --rm -it --net=host -v $PWD:/var/www -w /var/www httpd:alpi
 alias dotnet='docker run -it -v $PWD:/var/www -w /var/www --rm -p 8000:8080 mcr.microsoft.com/dotnet/sdk:8.0 dotnet'
 alias cloudflared='docker run -it --rm --privileged --net=host cloudflare/cloudflared'
 alias up='omz update; sudo apt update; sudo apt dist-upgrade; sudo apt autoremove; sudo apt autoclean; sudo apt remove; sudo apt clean'
-alias k='kubectl'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
