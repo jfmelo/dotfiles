@@ -45,7 +45,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 
 # Monitor
-output DP-1 bg ~/Pictures/jynx.jpg fill
+output DP-1 bg ~/Pictures/nostalgic-room-neon.jpg fill
 output DP-1 pos 0 0 res 1920x1200@59.950Hz
 # output DP-1 max_render_time 13
 
