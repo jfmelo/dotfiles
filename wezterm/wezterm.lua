@@ -1,8 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.initial_cols = 120
+config.initial_rows = 30
+
 config.adjust_window_size_when_changing_font_size = false
-config.check_for_updates = false
 
 config.color_scheme = "catppuccin-mocha"
 
@@ -12,13 +14,7 @@ config.colors = {
 	cursor_fg = "#282a36",
 }
 
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
-config.cursor_blink_rate = 300
-config.default_cursor_style = "BlinkingBlock"
-
 config.enable_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("IosevkaTermNerdFontMono")
 config.font_size = 13.2
 
@@ -43,7 +39,5 @@ config.keys = {
 	{ key = "PageUp", mods = "SHIFT", action = wezterm.action.ScrollByLine(-1) },
 	{ key = "PageDown", mods = "SHIFT", action = wezterm.action.ScrollByLine(1) },
 }
-
-config.enable_kitty_keyboard = true
 
 return config

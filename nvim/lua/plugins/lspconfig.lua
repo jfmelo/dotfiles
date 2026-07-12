@@ -16,7 +16,7 @@ return {
 		},
 	},
 	config = function()
-		vim.lsp.set_log_level("OFF")
+		vim.lsp.log.set_level("OFF")
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 			callback = function(event)
