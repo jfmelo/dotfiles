@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.initial_cols = 120
-config.initial_rows = 30
+config.initial_cols = 140
+config.initial_rows = 35
 
 config.adjust_window_size_when_changing_font_size = false
 

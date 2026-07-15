@@ -73,7 +73,7 @@ ZSH_CUSTOM=/home/jfmelo/Projects/dotfiles/oh-my-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git kubectl pj zsh-syntax-highlighting terraform timer)
-PROJECT_PATHS=(~/Projects ~/scribbr ~/quillbot)
+PROJECT_PATHS=(~/Projects ~/scribbr ~/Quillbot)
 
 source $ZSH/oh-my-zsh.sh
 
