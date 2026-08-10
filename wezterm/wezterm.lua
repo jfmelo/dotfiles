@@ -16,7 +16,7 @@ config.colors = {
 
 config.enable_tab_bar = false
 config.font = wezterm.font("IosevkaTermNerdFontMono")
-config.font_size = 13.2
+config.font_size = 12.7
 
 config.window_padding = {
 	left = 0,
