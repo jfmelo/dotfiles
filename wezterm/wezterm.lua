@@ -16,14 +16,6 @@ config.colors = {
 
 config.enable_tab_bar = false
 config.font = wezterm.font("IosevkaTermNerdFontMono", { weight = "Medium" })
--- config.font_size = 12
-
--- config.window_padding = {
--- 	left = 0,
--- 	right = 0,
--- 	top = 0,
--- 	bottom = 0,
--- }
 
 config.inactive_pane_hsb = {
 	brightness = 0.15,
