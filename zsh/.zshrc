@@ -1,12 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/usr/local/go/bin:/home/jfmelo/.local/bin:/home/jfmelo/.cargo/env:/home/jfmelo/android_sdk:/home/jfmelo/android_sdk/cmdline-tools/latest/bin:/home/jfmelo/android_sdk/platform-tools:/home/jfmelo/android_sdk/emulator"
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="gozilla"
@@ -26,11 +25,14 @@ ZSH_THEME="gozilla"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
+# Uncomment the following line to change the frequency the auto-updater is run (in days).
 # zstyle ':omz:update' frequency 13
+
+# Uncomment the following line to set how old an update must be before it's applied, manually or via the auto-updater (in days).
+# zstyle ':omz:update' cooldown 10
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -64,16 +66,16 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 HIST_STAMPS="%d/%m/%y %T"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-ZSH_CUSTOM=/home/jfmelo/Projects/dotfiles/oh-my-zsh
+ZSH_CUSTOM=~/Projects/dotfiles/oh-my-zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl pj zsh-syntax-highlighting terraform timer)
-PROJECT_PATHS=(~/Projects ~/scribbr ~/Quillbot)
+#
+plugins=(git kubectl pj zsh-syntax-highlighting)
+PROJECT_PATHS=(~/Projects)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,60 +94,22 @@ else
 fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias npm='docker run -it --name npm --rm -v $PWD:/app -w /app -e HOME=/app -p 3000:3000 node:14 npm'
-#alias npm-lts='docker run -it --name npm --rm -v $PWD:/app -w /app -e HOME=/app -p 3000:3000 node:lts npm'
-#alias npx='docker run -it --name npx --rm -v $PWD:/app -w /app -e HOME=/app node:15 npx'
-#alias npx-lts='docker run -it --rm -v $PWD:/app -w /app -e HOME=/app -p 8545:8545 node:lts npx'
-#alias node='docker run -it --rm -v $PWD:/app -w /app -e HOME=/app -p 8545:8545 node:latest node'
-#alias node-lts='docker run -it --rm -v $PWD:/app -w /app -e HOME=/app -p 8545:8545 node:lts node'
-#alias yarn='docker run -it --name yarn --rm -v $PWD:/app -w /app -e HOME=/app -p 1337:1337 node:15 yarn'
-#alias yarn='docker run -it --name yarn --rm -v $PWD:/app -w /app -e HOME=/app -p 1337:1337 node:15 yarn'
-#alias yarn='docker run -it --name yarn --rm -v $PWD:/app -w /app -e HOME=/app -p 1337:1337 node:lts yarn'
-#alias composer='docker run -it --name composer --rm -v $PWD:/app -w /app -e HOME=/app composer composer'
-#alias php='docker run --name php --rm -v $PWD:/var/www -p 8080:8080 -w /var/www php:8-alpine php'
-alias pypy='docker run --name pypy --rm -v $PWD:/var/www -p 8080:8080 -w /var/www pypy:slim pypy'
-alias composer1='docker run -it --name composer --rm -v $PWD:/app -w /app -e HOME=/app composer composer'
-alias eth='docker run -it --rm -v $PWD:/share trailofbits/eth-security-toolbox'
-alias bettercap='sudo docker run --rm -it --privileged --net=host -p 80:80 -p 8081:8081  bettercap/bettercap bettercap'
-alias mysql='docker run --rm -it --privileged --net=host -v $PWD:/var/www -w /var/www mysql mysql'
-alias postgres='docker run --rm -it --privileged --net=host -v $PWD:/var/www -w /var/www postgres:17.5-alpine psql'
-alias mysqldump='docker run --rm -it --privileged --net=host -v $PWD:/var/www -w /var/www mysql mysqldump'
-alias redis-cli='docker run --rm -it --privileged --net=host -v $PWD:/var/www -w /var/www redis:alpine redis-cli'
-alias ds='docker compose'
-alias v='nvim .'
-# alias terraform='docker run --rm -it -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -v $PWD:/var/www -w /var/www hashicorp/terraform:latest'
-# alias tf='terraform'
-alias dit='docker exec -it'
-alias ditu='docker exec -itu root'
-alias gooff='nvidia-settings --assign="CurrentMetaMode=DPY-0: nvidia-auto-select @2560x1080 +0+0 {ViewPortIn=2560x1080, ViewPortOut=2560x1080+0+0}" && sleep 2 && xrandr --output eDP-1-1 --auto --primary --right-of HDMI-0 && sleep 2 && nitrogen --restore'
-alias golive='nvidia-settings --assign="CurrentMetaMode=DPY-0: 1920x1080 @1920x1080 +640+0 {ViewPortIn=1920x1080, ViewPortOut=1920x1080+0+0}" && sleep 2 && xrandr --output eDP-1-1 --auto --primary --right-of HDMI-0 && sleep 2 && nitrogen --restore'
-alias fixdirchmod='sudo chown $USER . -Rf; find . -type d -exec chmod 755 {} +; find . -type f -exec chmod 644 {} +;'
-alias ssh='env TERM=xterm-256color ssh'
-alias copy='xclip -sel clip'
-alias ab='docker run --rm -it --net=host -v $PWD:/var/www -w /var/www httpd:alpine ab'
-alias dotnet='docker run -it -v $PWD:/var/www -w /var/www --rm -p 8000:8080 mcr.microsoft.com/dotnet/sdk:8.0 dotnet'
-alias cloudflared='docker run -it --rm --privileged --net=host cloudflare/cloudflared'
-alias up='omz update; sudo apt update; sudo apt dist-upgrade; sudo apt autoremove; sudo apt autoclean; sudo apt remove; sudo apt clean'
+alias v="nvim ."
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export XDG_CURRENT_DESKTOP=sway
-export CPLUS_INCLUDE_PATH=/usr/include/c++/11:/usr/include/x86_64-linux-gnu/c++/11
-
-# Updates path to add gcloud and shell completion
-if [ -f '/home/jfmelo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jfmelo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/jfmelo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jfmelo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Loads nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$HOME/.config/nvm/nvm.sh" ] && \. "$HOME/.config/nvm/nvm.sh"
+[ -s "/usr/share/nvm/bash_completion" ] && \. "/usr/share/nvm/bash_completion"
