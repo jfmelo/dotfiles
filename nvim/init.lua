@@ -1,87 +1,89 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.o.termguicolors = true -- enables true color
-vim.o.laststatus = 2 -- always show status line
-vim.o.number = true -- @todo is this needed since I only use relative?
-vim.o.relativenumber = true
-vim.o.mouse = "" -- disable mouse mode
-vim.o.showmode = true -- mode is already in the statusline
-vim.schedule(function() -- sync clipboard with OS
-	vim.o.clipboard = "unnamedplus"
-end)
-vim.o.breakindent = true
-vim.o.undofile = true -- save undo history to file
-vim.o.ignorecase = true -- ignore case on search unless there's a uppercase letter
-vim.o.smartcase = true
-vim.o.signcolumn = "yes" -- sign column always visible
-vim.o.updatetime = 300 -- reduce the time to save swap files
-vim.o.timeoutlen = 300 -- time to wait for a mapped sequence to complete
-vim.o.splitright = true -- open new split to the right
-vim.o.splitbelow = true -- open new split below
-vim.o.list = true
-vim.opt.listchars = { lead = "·", nbsp = "␣", tab = "» ", trail = "·" }
-vim.o.inccommand = "split" -- show live preview of substitution
-vim.o.cursorline = false -- highlight the current line
-vim.o.scrolloff = 5 -- lines to keep above and below to start scrolling
-vim.o.wrap = false -- don't wrap based on the window size
+do
+	vim.loader.enable()
+	vim.g.mapleader = " "
+	vim.g.maplocalleader = " "
+	vim.o.number = true
+	vim.o.relativenumber = true
+	vim.o.mouse = "" -- disable mouse mode
+	vim.o.showmode = true -- isn't needed with statusline
+	vim.schedule(function() -- sync clipboard with OS
+		vim.o.clipboard = "unnamedplus"
+	end)
+	vim.o.breakindent = true
+	vim.o.undofile = true
+	vim.o.ignorecase = true
+	vim.o.smartcase = true
+	vim.o.signcolumn = "yes"
+	vim.o.updatetime = 250
+	vim.o.timeoutlen = 300
+	vim.o.splitright = true
+	vim.o.splitbelow = true
+	vim.o.list = true
+	vim.opt.listchars = { lead = "·", nbsp = "␣", tab = "» ", trail = "·" }
+	vim.o.inccommand = "split"
+	vim.o.cursorline = false
+	vim.o.scrolloff = 5
+	vim.o.confirm = true
+	vim.o.wrap = false
+end
 
--- highlight search results but clear on <Esc>
-vim.o.hlsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+do
+	vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- clear search highlight
 
--- Diagnostic Config
--- See :help vim.diagnostic.Opts
-vim.diagnostic.config({
-	update_in_insert = false,
-	severity_sort = true,
-	float = { border = "rounded", source = "if_many" },
-	underline = { severity = vim.diagnostic.severity.ERROR },
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "󰅚 ",
-			[vim.diagnostic.severity.WARN] = "󰀪 ",
-			[vim.diagnostic.severity.INFO] = "󰋽 ",
-			[vim.diagnostic.severity.HINT] = "󰌶 ",
+	-- Diagnostic Config
+	-- See :help vim.diagnostic.Opts
+	vim.diagnostic.config({
+		update_in_insert = false,
+		severity_sort = true,
+		float = { border = "rounded", source = "if_many" },
+		underline = { severity = vim.diagnostic.severity.WARN },
+		virtual_text = true, -- shows at the end of the line
+		virtual_lines = false, -- shows underneath the line
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = "󰅚 ",
+				[vim.diagnostic.severity.WARN] = "󰀪 ",
+				[vim.diagnostic.severity.INFO] = "󰋽 ",
+				[vim.diagnostic.severity.HINT] = "󰌶 ",
+			},
 		},
-	},
-	virtual_text = true,
-	virtual_lines = false,
-	jumps = { float = true },
-})
+		jumps = { float = true },
+	})
 
--- shortcut to return to the file explorer
-vim.keymap.set("n", "<leader>ex", "<Cmd>Explore<CR>")
+	-- shortcut to return to the file explorer
+	vim.keymap.set("n", "<leader>ex", "<Cmd>Explore<CR>")
 
--- move lines up and down in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Moves line down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Moves line up" })
+	-- move lines up and down in visual mode
+	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Moves line down" })
+	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Moves line up" })
 
--- diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]error messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+	-- diagnostic keymaps
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]error messages" })
+	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- highlight yanked text
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking text",
-	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
-})
+	-- highlight yanked text
+	vim.api.nvim_create_autocmd("TextYankPost", {
+		desc = "Highlight when yanking text",
+		group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+		callback = function()
+			vim.hl.on_yank()
+		end,
+	})
 
--- organize imports on save a go file
-vim.api.nvim_create_autocmd("BufWritePre", {
-	desc = "Organize imports on save a go file",
-	pattern = "*.go",
-	callback = function()
-		if vim.lsp.get_clients({ bufnr = 0 }) == 0 then
-			return
-		end
-		vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
-	end,
-})
+	-- organize imports on save a go file
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		desc = "Organize imports on save a go file",
+		pattern = "*.go",
+		callback = function()
+			if vim.lsp.get_clients({ bufnr = 0 }) == 0 then
+				return
+			end
+			vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
+		end,
+	})
+end
 
 -- install lazy.nvim plugin manager
 -- Bootstrap lazy.nvim
