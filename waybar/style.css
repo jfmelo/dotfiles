@@ -1,11 +1,11 @@
 * {
   font-family: IosevkaTermNerdFontMono, monospace, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 800;
 }
 
 window#waybar {
-  background-color: #0e0e0e;
+  background-color: transparent;
   border: 0;
   margin: 0;
   padding: 0;
@@ -38,15 +38,10 @@ window#waybar {
 #network,
 #pulseaudio,
 #custom-media,
+#bluetooth,
 #tray {
-  border-left: 1px solid #222;
   padding: 0 10px;
   color: #bebebe;
-}
-
-#clock,
-#network {
-  border: 0;
 }
 
 #battery.charging,
