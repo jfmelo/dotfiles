@@ -28,6 +28,12 @@ hl.monitor({
 	scale = "auto",
 })
 hl.monitor({
+	output = "DP-7",
+	mode = "preferred",
+	position = "0x0",
+	scale = "auto",
+})
+hl.monitor({
 	output = "",
 	mode = "preferred",
 	position = "auto",
@@ -177,9 +183,15 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 -- uncomment all if you wish to use that.
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 -- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+-- dell monitor
 hl.workspace_rule({ workspace = 1, monitor = "DP-1", default = true })
 hl.workspace_rule({ workspace = 2, monitor = "DP-1" })
 hl.workspace_rule({ workspace = 3, monitor = "DP-1" })
+-- widescreen monitor
+hl.workspace_rule({ workspace = 1, monitor = "DP-7", default = true })
+hl.workspace_rule({ workspace = 2, monitor = "DP-7" })
+hl.workspace_rule({ workspace = 3, monitor = "DP-7" })
+-- laptop screen
 hl.workspace_rule({ workspace = 4, monitor = "eDP-1", default = true })
 hl.workspace_rule({ workspace = 5, monitor = "eDP-1" })
 hl.workspace_rule({ workspace = 6, monitor = "eDP-1" })
@@ -291,7 +303,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.layout("togglesplit")) -- dwindle only
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd('grim -g "$(slurp -o)"'))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 
--- Move focus with mainMod + arrow keys
+-- Move focus with mainMod + vim motion
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
