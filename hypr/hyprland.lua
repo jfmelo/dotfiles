@@ -27,12 +27,12 @@ hl.monitor({
 	position = "0x0",
 	scale = "auto",
 })
-hl.monitor({
-	output = "DP-7",
-	mode = "preferred",
-	position = "0x0",
-	scale = "auto",
-})
+-- hl.monitor({
+-- 	output = "DP-7",
+-- 	mode = "preferred",
+-- 	position = "0x0",
+-- 	scale = "auto",
+-- })
 hl.monitor({
 	output = "",
 	mode = "preferred",
@@ -188,9 +188,9 @@ hl.workspace_rule({ workspace = 1, monitor = "DP-1", default = true })
 hl.workspace_rule({ workspace = 2, monitor = "DP-1" })
 hl.workspace_rule({ workspace = 3, monitor = "DP-1" })
 -- widescreen monitor
-hl.workspace_rule({ workspace = 1, monitor = "DP-7", default = true })
-hl.workspace_rule({ workspace = 2, monitor = "DP-7" })
-hl.workspace_rule({ workspace = 3, monitor = "DP-7" })
+-- hl.workspace_rule({ workspace = 1, monitor = "DP-7", default = true })
+-- hl.workspace_rule({ workspace = 2, monitor = "DP-7" })
+-- hl.workspace_rule({ workspace = 3, monitor = "DP-7" })
 -- laptop screen
 hl.workspace_rule({ workspace = 4, monitor = "eDP-1", default = true })
 hl.workspace_rule({ workspace = 5, monitor = "eDP-1" })
@@ -237,6 +237,7 @@ hl.config({
 	misc = {
 		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
 		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+		disable_splash_rendering = true,
 	},
 })
 
