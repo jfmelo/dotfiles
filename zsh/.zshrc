@@ -113,3 +113,6 @@ alias v="nvim ."
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$HOME/.config/nvm/nvm.sh" ] && \. "$HOME/.config/nvm/nvm.sh"
 [ -s "/usr/share/nvm/bash_completion" ] && \. "/usr/share/nvm/bash_completion"
+
+# Managing keys across sessions 
+eval $(keychain --eval --quiet ~/.ssh/github)   

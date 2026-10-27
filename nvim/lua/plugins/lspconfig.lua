@@ -83,6 +83,7 @@ return {
 
 		-- Non-LSP tools installed via Mason (formatters/linters/etc.).
 		local tools = {
+			"gdscript-formatter",
 			"gofumpt",
 			"golangci-lint",
 			"hadolint",
